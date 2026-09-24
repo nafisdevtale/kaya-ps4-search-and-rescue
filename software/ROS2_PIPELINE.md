@@ -1,12 +1,13 @@
-# Software Architecture
+# Software & Integration Architecture
 
 **KAYA Buildathon 2026 · PS4 Search & Rescue**  
-**Team:** ANOMALY · KT-2047  
-**Status:** Integration architecture; dashboard currently runs in simulation mode.
+**Team:** ANOMALY · **KT-2047**
 
-## Data path
+## Integration boundary
 
-`\`\`\`
+The intended physical communication path is:
+
+```
 Pixhawk 2.4.8
       │
 MAVLink / Serial
@@ -14,33 +15,34 @@ MAVLink / Serial
       ▼
 Raspberry Pi 4B · 4 GB
       │
-ROS 2 Humble
-      │
+ROS 2 Humble architecture
       ├── RGB perception
       ├── MLX90640 thermal analysis
-      ├── AR0144 stereo depth
-      ├── Sensor fusion
-      └── Edge risk engine
+      ├── AR0144 stereo depth / SLAM
+      ├── sensor fusion
+      └── edge risk engine
       │
       ▼
-Command-center data adapter
+Mission data adapter
       │
       ▼
-Next.js dashboard
-`\`\`\`
+Next.js command center
+```
 
-## Perception flow
+The current dashboard stops at the simulation boundary: `SimulationDataProvider` supplies deterministic mission data. Live Pixhawk, MAVLink, ROS 2 and physical sensor streams are not connected.
 
-1. RGB detection produces a candidate.
-2. Thermal data is used as a second modality.
-3. Stereo depth provides target / obstacle range.
-4. UAV pose is combined with the detection for geotagging.
-5. The risk engine applies prototype priority rules.
-6. The dashboard receives the resulting detection and alert objects.
+## Perception pipeline
 
-## Simulation provider
+1. RGB perception generates candidate people/hazard detections.
+2. Thermal data provides a complementary heat-signature signal.
+3. Stereo data provides depth/spatial context.
+4. Pixhawk navigation state provides vehicle pose and flight state.
+5. Fusion associates detection, thermal, depth and vehicle-state information.
+6. Geo-tagging associates a detection with a geographic position.
+7. The prototype risk layer assigns a demonstration priority.
+8. Mission data is stored locally and surfaced to the command center.
 
-The current application uses `SimulationDataProvider` backed by the local TypeScript simulation engine.
+## Current simulation
 
 The simulation provides:
 
@@ -49,20 +51,14 @@ The simulation provides:
 - RGB / thermal / stereo events
 - Detection records
 - Alerts
-- Timeline events
+- Mission timeline events
 - System-health values
 
-These values are demonstration data.
+These are demonstration values and must not be interpreted as flight-test measurements.
 
-## Physical integration path
+## Prototype risk rules
 
-A future hardware implementation would replace the simulation data source with a provider that reads MAVLink and ROS 2 data from the Raspberry Pi. The dashboard interface is separated from the transport layer so the UI does not depend on the data source.
-
-## Risk engine
-
-Current demonstration rules:
-
-| Condition | Priority |
+| Condition | Demonstration priority |
 |---|---|
 | Survivor + fire within configured threshold | CRITICAL |
 | Survivor | HIGH |
@@ -70,4 +66,21 @@ Current demonstration rules:
 | Smoke / debris | MEDIUM |
 | Other / unclassified | LOW |
 
-The threshold and priorities are prototype logic for the competition demonstration.
+These are prototype demonstration rules, not emergency-service standards.
+
+## Data interfaces
+
+| Interface | Source | Destination | Purpose |
+|---|---|---|---|
+| PWM | Pixhawk MAIN OUT 1–4 | ESCs | Motor control |
+| GPS / compass | Navigation module | Pixhawk | Position / heading data |
+| MAVLink / UART | Pixhawk TELEM2 | Raspberry Pi | Flight and mission state |
+| MAVLink / UART | Pixhawk TELEM1 | 433 MHz SiK air unit | Ground telemetry |
+| CSI-2 | Camera Module 3 | Raspberry Pi | RGB frames |
+| I²C | MLX90640 | Raspberry Pi | Thermal array data |
+| USB 2.0 / UVC | AR0144 | Raspberry Pi | Stereo frames |
+| USB | SiK ground unit | Operator laptop | Telemetry input |
+
+## Physical integration boundary
+
+A future hardware provider may replace the simulation source with MAVLink/ROS 2 data without changing the dashboard's domain model. Before that transition, the team must validate serial wiring, message rates, time synchronization, sensor drivers, CPU load, thermal limits, power stability and failure handling on the actual aircraft.
