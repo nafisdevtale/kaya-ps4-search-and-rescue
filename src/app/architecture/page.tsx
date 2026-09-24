@@ -87,7 +87,7 @@ export default function ArchitecturePage() {
       <div className="bg-[#0b1017] border border-[#1b2738] rounded-lg p-4 shadow-xl space-y-4">
         <div className="border-b border-[#182638] pb-2 flex items-center justify-between">
           <h2 className="text-xs font-bold text-white uppercase tracking-wider">
-            INTERACTIVE MISSION TRIAGE WALKTHROUGH (CLICK STEPS TO INSPECT)
+            INTERACTIVE SYSTEM WALKTHROUGH
           </h2>
           <span className="text-[10px] text-telemetry-blue font-semibold">
             STEP {activeStep} OF 6 ACTIVE
@@ -221,7 +221,7 @@ RASPBERRY PI 4B (4GB) ── Ubuntu 22.04 LTS + ROS 2 Humble
     ├── mlx90640_thermal_node ───── Samples 32x24 FIR matrix (8 Hz) over I2C
     ├── ar0144_stereo_depth_node ── Synchronized disparity map & obstacle clearance
     ├── sensor_fusion_node ──────── Fuses RGB Bounding Box + Thermal Peak + Stereo Range + Pose
-    ├── anomaly_risk_engine ─────── Prototype risk rules: Survivor + Fire proximity = CRITICAL
+    ├── edge_risk_engine ───────── Prototype priority rules: Survivor + Fire proximity = CRITICAL
     ├── local_logging_node ──────── Blackbox flight telemetry & incidents recorded to 128GB microSD
     └── dashboard_adapter_node ──── WebSocket JSON & frame stream to Ground Station UI
             │
