@@ -96,7 +96,7 @@ export default function SystemHealthPage() {
           </div>
 
           <div className="p-2.5 rounded bg-[#070b10] border border-[#141f2d] text-[11px] text-slate-300">
-            <span className="text-slate-500 block text-[10px]">ACTIVE ROS 2 NODES:</span>
+            <span className="text-slate-500 block text-[10px]">SIMULATED ROS 2 NODE SET:</span>
             <span className="text-slate-200">
               mavlink_bridge, yolo_detector, mlx90640_driver, ar0144_stereo, sensor_fusion, risk_engine, local_logger ({comp.activeNodes} nodes)
             </span>
@@ -113,7 +113,7 @@ export default function SystemHealthPage() {
               </h2>
             </div>
             <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">
-              MAVLINK: ACTIVE
+              MAVLINK PATH: SIMULATED
             </span>
           </div>
 
@@ -144,7 +144,7 @@ export default function SystemHealthPage() {
           </div>
 
           <div className="p-2.5 rounded bg-[#070b10] border border-[#141f2d] text-[11px] text-slate-300">
-            <span className="text-slate-500 block text-[10px]">FAIL-SAFE CONTINGENCY:</span>
+            <span className="text-slate-500 block text-[10px]">FAIL-SAFE MODEL:</span>
             <span className="text-slate-200">
               Low Battery RTL at 20% · Geofence Breach Land · Radio Loss Failsafe Engaged
             </span>
