@@ -2,12 +2,11 @@
   "name": "ps4-search-and-rescue-dashboard",
   "version": "1.0.0",
   "private": true,
-  "description": "PS4 Search & Rescue Command Center - Team ANOMALY (KT-2047)",
+  "description": "PS4 Search & Rescue Command Center — Team ANOMALY (KT-2047)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -27,8 +26,5 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
-  },
-  "allowScripts": {
-    "fsevents@2.3.3": true
   }
 }
