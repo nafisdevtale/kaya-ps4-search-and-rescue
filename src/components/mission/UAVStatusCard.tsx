@@ -131,7 +131,7 @@ export function UAVStatusCard() {
         <div className="flex items-center justify-between text-[10px]">
           <span className="text-slate-500">PIXHAWK ARM:</span>
           <span className={telemetry.armed ? "text-emerald-400 font-bold" : "text-slate-400"}>
-            {telemetry.armed ? "ARMED (PROPS LIVE)" : "DISARMED"}
+            {telemetry.armed ? "ARMED (SIMULATION)" : "DISARMED"}
           </span>
         </div>
       </div>
