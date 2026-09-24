@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import { PROJECT_BRAND } from "../config/branding";
@@ -43,6 +44,7 @@ export default function RootLayout({
             </div>
           </footer>
         </MissionProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
