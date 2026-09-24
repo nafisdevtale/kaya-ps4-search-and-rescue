@@ -1,6 +1,6 @@
-import { IDataProvider } from "./IDataProvider";
 import { SimulationEngine } from "../simulation/engine";
 import {
+  IDataProvider,
   UAVTelemetry,
   MissionProgress,
   IncidentDetection,
