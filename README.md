@@ -25,7 +25,7 @@ No simulated value should be interpreted as a flight-test or field-test result.
 
 ## System architecture
 
-````
+```
 RGB Camera ───────┐
 Thermal Sensor ───┼──> Raspberry Pi 4B ──> Perception / Fusion ──> Risk Engine
 Stereo Camera ────┘          ▲                                      │
@@ -34,11 +34,11 @@ Stereo Camera ────┘          ▲                                      
                              │                                      │
                        Pixhawk 2.4.8                                ▼
                                                                Command Center
-````
+```
 
 The intended physical integration path is:
 
-````
+```
 Pixhawk 2.4.8
       │
 MAVLink / Serial
@@ -56,7 +56,7 @@ ROS 2 Humble
       │
       ▼
 Command Center
-````
+```
 
 The deployed dashboard currently uses `SimulationDataProvider`; it does not consume live Pixhawk data.
 
@@ -120,7 +120,7 @@ These rules are demonstration logic, not an emergency-services standard.
 
 ## Repository layout
 
-````
+```
 src/
   app/                    Next.js routes
   components/             Dashboard components
@@ -132,28 +132,28 @@ src/
 
 hardware/                 Hardware baseline and interfaces
 software/                 ROS 2 / MAVLink integration architecture
-````
+```
 
 ## Run locally
 
 Requirements: Node.js and npm.
 
-````bash
+```bash
 git clone https://github.com/nafisdevtale/kaya-ps4-search-and-rescue.git
 cd kaya-ps4-search-and-rescue
 
 npm install
 npm run dev
-````
+```
 
 Open `http://localhost:3000`.
 
 Production build:
 
-````bash
+```bash
 npm run build
 npm run start
-````
+```
 
 ## Deployment
 
