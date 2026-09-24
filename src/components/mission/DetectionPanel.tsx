@@ -40,7 +40,7 @@ export function DetectionPanel() {
           </h2>
         </div>
         <span className="text-[10px] font-mono text-slate-400">
-          AUTO-FUSED (AI+FIR+DEPTH)
+          FUSED (RGB+THERMAL+DEPTH)
         </span>
       </div>
 
@@ -51,7 +51,7 @@ export function DetectionPanel() {
             <ShieldAlert className="w-8 h-8 mb-2 opacity-30 text-slate-400" />
             <p>NO ACTIVE INCIDENTS DETECTED</p>
             <p className="text-[10px] text-slate-600 mt-1">
-              Start mission sweep to begin AI multi-modal perception
+              Start the simulation to run the multi-modal detection sequence
             </p>
           </div>
         ) : (
@@ -106,7 +106,7 @@ export function DetectionPanel() {
                 <div className="grid grid-cols-2 gap-1.5 text-[11px] font-mono text-slate-400 my-2">
                   <div className="flex items-center space-x-1.5">
                     <Eye className="w-3 h-3 text-telemetry-blue" />
-                    <span>AI CONF: {(inc.confidence * 100).toFixed(0)}%</span>
+                    <span>MODEL CONF: {(inc.confidence * 100).toFixed(0)}%</span>
                   </div>
 
                   <div className="flex items-center space-x-1.5">
