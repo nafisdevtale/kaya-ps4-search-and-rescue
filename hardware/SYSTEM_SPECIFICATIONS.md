@@ -65,7 +65,3 @@ The 433 MHz SiK link carries vehicle and selected mission information. It is not
 ## Procurement boundary
 
 The MVP excludes dedicated 3D LiDAR, RTK GPS, a redundant flight controller, gimbal hardware, an industrial thermal camera, gas sensing, Jetson-class compute and cloud AI.
-
-## Validation boundary
-
-This is a Buildathon prototype baseline, not a certified flight-ready aircraft. Before autonomous flight, validate total mass, thrust margin, motor/ESC current, battery sag, 5 V rail stability, center of gravity, propeller direction, GPS/compass interference, telemetry and failsafes.
