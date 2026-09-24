@@ -219,7 +219,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           id: "ALT-105",
           severity: "CRITICAL",
           title: "CRITICAL: DOWNED POWER CABLE",
-          message: "Live electrical wire hazard detected. Ground personnel stand back.",
+          message: "Simulated electrical wire hazard detected.",
           incidentId: "INC-0048"
         }
       },
@@ -244,7 +244,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
   {
     id: "COMM_LOSS_FAILSAFE",
     name: "Telemetry Link Interruption Drill",
-    tagline: "Offline Local Autonomy & Failsafe Verification",
+    tagline: "Offline Autonomy & Failsafe Scenario",
     description: "Simulates a 433 MHz telemetry interruption and the corresponding local fallback and RTL sequence.",
     baseLocation: HOME_COORDINATE,
     polygon: SEARCH_POLYGON,
@@ -270,8 +270,8 @@ export const SCENARIOS: ScenarioDefinition[] = [
         data: {
           id: "ALT-109",
           severity: "INFO",
-          title: "FAILSAFE RTL ACTIVATED",
-          message: "Pixhawk failsafe timer triggered. Autonomous return to home commenced.",
+          title: "SIMULATED RTL FAILSAFE",
+          message: "Simulated Pixhawk failsafe timer triggered. Return-to-launch sequence commenced.",
         }
       },
       { timeSec: 55, type: "COMPLETE", data: { note: "Simulation complete under the configured failsafe sequence." } }
