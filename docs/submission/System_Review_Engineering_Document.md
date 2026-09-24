@@ -32,22 +32,6 @@ Pixhawk remains the flight-control computer. Raspberry Pi remains the perception
 
 The 433 MHz SiK path is intended for vehicle and selected mission data. It is not treated as a high-bandwidth video channel.
 
-## Validation requirements
-
-Before autonomous flight, validate:
-
-- total takeoff mass and thrust margin;
-- motor/ESC current draw;
-- battery voltage sag and connector integrity;
-- 5 V rail stability at the Raspberry Pi;
-- center of gravity;
-- propeller direction;
-- GPS/compass interference;
-- MAVLink serial communication;
-- telemetry reliability;
-- configured failsafes;
-- camera, thermal and stereo acquisition.
-
 ## Non-claims
 
 The repository does not claim that physical UAV integration, physical AI inference, sensor fusion, autonomous flight or field validation have been completed. The web application is a deterministic simulation.
