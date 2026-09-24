@@ -28,7 +28,7 @@ The engineering artifacts are intentionally separated by purpose:
 |---|---|
 | [Final BOM](docs/submission/BOM_Final.pdf) | Procurement baseline, specifications, quantities and cost |
 | [Circuit Schematic](docs/submission/Circuit_Schematic.pdf) | Electrical power, control and data interfaces |
-| [System Architecture](docs/submission/System_Architecture.png) | System-level hardware, data-flow and functional architecture |
+| [System Architecture](docs/submission/System_Architecture.svg) | System-level hardware, data-flow and functional architecture |
 | [System Review](docs/submission/System_Review_Engineering_Document.pdf) | Detailed engineering explanation, interfaces, validation and limitations |
 | [Engineering Package Guide](docs/ENGINEERING_PACKAGE.md) | Document hierarchy and submission guidance |
 
@@ -36,7 +36,7 @@ The **BOM** is the procurement source of truth, the **circuit schematic** is the
 
 ## System architecture
 
-![PS4 Search & Rescue UAV system architecture](docs/submission/System_Architecture.png)
+![PS4 Search & Rescue UAV system architecture](docs/submission/System_Architecture.svg)
 
 ### Physical data path
 
