@@ -27,7 +27,7 @@
 
 ## 1. Executive Summary
 
-During critical disaster scenarios (earthquakes, structural collapse, wildfires, and floods), ground search-and-rescue teams face severe situational blindness. **ANOMALY** is an autonomous search-and-rescue unmanned aerial vehicle (UAV) designed to rapidly search affected sectors, visually and thermally localize survivors, detect life-threatening environmental hazards, compute compound risk priorities, and provide emergency operators with an actionable command console.
+During critical disaster scenarios (earthquakes, structural collapse, wildfires, and floods), ground search-and-rescue teams face severe situational blindness. The proposed **PS4 Search & Rescue system** is an autonomous unmanned aerial vehicle (UAV) architecture designed to rapidly search affected sectors, visually and thermally localize survivors, detect environmental hazards, compute compound risk priorities, and provide emergency operators with an actionable command console.
 
 The command center functions as the high-information-density tactical dashboard for field commanders, maintaining complete operational autonomy even when global internet connectivity is severed.
 
@@ -67,7 +67,7 @@ The hardware and avionics architecture is fixed around standardized, high-reliab
                                     - thermal_analyzer_node
                                     - ar0144_stereo_depth_node
                                     - sensor_fusion_node
-                                    - anomaly_risk_engine_node
+                                    - edge_risk_engine_node
                                                 │
                                                 ▼
                                  [ DATA ADAPTER ARCHITECTURE ]
@@ -89,7 +89,7 @@ The hardware and avionics architecture is fixed around standardized, high-reliab
 
 ## 3. Sensor Fusion & Multi-Modal Verification Chain
 
-Single-modality vision systems generate unacceptable false-alarm rates in search-and-rescue (e.g. mannequins or hot rocks). The **ANOMALY** pipeline enforces deterministic 4-stage multi-modal confirmation:
+Single-modality vision systems generate unacceptable false-alarm rates in search-and-rescue (e.g. mannequins or hot rocks). The **multi-modal fusion pipeline** enforces deterministic 4-stage multi-modal confirmation:
 
 ```
 1. OPTICAL (RGB)         2. THERMAL (FIR)          3. STEREO DEPTH         4. GNSS / IMU POSE
@@ -108,7 +108,7 @@ Single-modality vision systems generate unacceptable false-alarm rates in search
                                      Geotag: 18.52071° N, 73.85691° E
                                                 │
                                                 ▼
-                                    [ ANOMALY RISK ENGINE ]
+                                    [ EDGE RISK ENGINE ]
                                     Rule: Survivor near Active Fire (<25m)
                                     Assigned Priority: CRITICAL
                                                 │
@@ -119,7 +119,7 @@ Single-modality vision systems generate unacceptable false-alarm rates in search
 
 ---
 
-## 4. ANOMALY Risk Engine: Priority Matrix
+## 4. Edge Risk Engine: Priority Matrix
 
 The risk engine computes prototype priority tiers to assist field triage (not certified emergency service dispatch standards):
 
@@ -219,8 +219,8 @@ The risk engine computes prototype priority tiers to assist field triage (not ce
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/nafisdevtale/kaya-ps4-search-and-rescue.git cd kaya-ps4-search-and-rescue
-cd ps4-search-and-rescue
+git clone https://github.com/nafisdevtale/kaya-ps4-search-and-rescue.git
+cd kaya-ps4-search-and-rescue
 
 # 2. Install dependencies
 npm install
