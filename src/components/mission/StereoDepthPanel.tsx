@@ -66,7 +66,7 @@ export function StereoDepthPanel() {
           </div>
         </div>
 
-        {/* Real-time Disparity Histogram Bars */}
+        {/* Disparity Histogram */}
         <div className="my-2">
           <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 mb-1">
             <span>STEREO DISPARITY DEPTH SLICES (0.5m - 20m)</span>
