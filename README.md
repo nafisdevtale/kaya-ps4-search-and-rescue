@@ -140,7 +140,7 @@ The risk engine computes prototype priority tiers to assist field triage (not ce
 
 ## 5. Technology Stack
 
-* **Framework:** Next.js 14 (App Router)
+* **Framework:** Next.js 16 (App Router)
 * **Language:** TypeScript 5.6
 * **Styling:** Tailwind CSS 3.4 (Aerospace dark palette, high contrast, compact telemetry tokens)
 * **Tactical Mapping:** Leaflet 1.9 + SVG/Canvas high-precision offline vector fallback
@@ -219,7 +219,7 @@ The risk engine computes prototype priority tiers to assist field triage (not ce
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/team-anomaly/ps4-search-and-rescue.git
+git clone https://github.com/nafisdevtale/kaya-ps4-search-and-rescue.git cd kaya-ps4-search-and-rescue
 cd ps4-search-and-rescue
 
 # 2. Install dependencies
