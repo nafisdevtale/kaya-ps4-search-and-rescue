@@ -17,7 +17,7 @@ The software architecture bridges low-level flight dynamics with high-level mult
 |  - Attitude Estimation (EKF3)           - Waypoint Navigation (AUTO)       |
 |  - Motor Mixer & PID Regulators         - Fail-safe Monitors (Battery/GPS) |
 +-------------------------------------+--------------------------------------+
-                                      | MAVLink / MicroXRCE-DDS
+                                      | MAVLink / Serial
                                       v
 +----------------------------------------------------------------------------+
 |                       ROS 2 HUMBLE (RASPBERRY PI 4B 4GB)                   |
@@ -54,7 +54,7 @@ The software architecture bridges low-level flight dynamics with high-level mult
 |  +-----------------------------------|-----------------------------------+  |
 |                                      v                                      |
 |  +-----------------------------------------------------------------------+  |
-|  | anomaly_risk_engine_node                                              |  |
+|  | edge_risk_engine_node                                              |  |
 |  | - Evaluates Environmental Threat Matrix & Spatial Colocation          |  |
 |  | - Survivor + Fire = CRITICAL Priority                                 |  |
 |  | - Standalone Survivor / Fire / Flood = HIGH Priority                  |  |
@@ -74,7 +74,7 @@ The software architecture bridges low-level flight dynamics with high-level mult
 
 ## 2. Sensor Fusion Mechanism: Step-by-Step
 
-A common flaw in single-modality drones is high false positives (e.g. mannequins or hot rocks). The ANOMALY pipeline resolves this through deterministic multi-modal verification:
+A common flaw in single-modality drones is high false positives (e.g. mannequins or hot rocks). The multi-modal fusion pipeline resolves this through deterministic multi-modal verification:
 
 1. **Step 1: Visual Perception (RGB)**
    - The lightweight YOLO inference node identifies a candidate class (e.g. `PERSON` with 91% confidence).
@@ -87,7 +87,7 @@ A common flaw in single-modality drones is high false positives (e.g. mannequins
    - Using the UAV's current GPS position, barometric altitude, camera gimbal tilt, and heading angle, the system projects the optical ray onto the digital elevation plane.
    - Generates precise geodetic coordinates (e.g., `18.52071° N, 73.85691° E`).
 5. **Step 5: Prioritization & Dispatch**
-   - The **ANOMALY Risk Engine** classifies the compound event (e.g. Survivor in vicinity of rubble) as `CRITICAL` or `HIGH` priority, triggering instant audible and visual alerts on the command dashboard.
+   - The **Edge Risk Engine** classifies the compound event (e.g. Survivor in vicinity of rubble) as `CRITICAL` or `HIGH` priority, triggering instant audible and visual alerts on the command dashboard.
 
 ---
 
