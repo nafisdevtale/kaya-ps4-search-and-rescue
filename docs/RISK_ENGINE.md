@@ -1,4 +1,4 @@
-# ANOMALY Risk Engine: Rules & Heuristics Matrix
+# Edge Risk Engine: Rules & Heuristics Matrix
 
 **System:** PS4 Search & Rescue Command Center  
 **Team:** Team ANOMALY (KT-2047)  
@@ -9,7 +9,7 @@
 
 ## 1. Objective
 
-During large-scale disaster response (earthquakes, wildfires, flash floods), emergency responders are overwhelmed by raw sensory streams. The **ANOMALY Risk Engine** automatically synthesizes raw multi-sensor detections into actionable priority tiers to accelerate field triage.
+During large-scale disaster response (earthquakes, wildfires, flash floods), emergency responders are overwhelmed by raw sensory streams. The **Edge Risk Engine** automatically synthesizes raw multi-sensor detections into actionable priority tiers to accelerate field triage.
 
 ---
 
