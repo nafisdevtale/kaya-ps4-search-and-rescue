@@ -67,17 +67,17 @@ export const SCENARIOS: ScenarioDefinition[] = [
   {
     id: "SURVIVOR_FIRE",
     name: "Survivor & Fire Co-location Drill",
-    tagline: "Primary Competition Evaluation Scenario (P0)",
-    description: "Multi-modal autonomous sweep detecting a trapped survivor with thermal confirmation (34.8°C), followed by a co-located fire hotspot triggering compound priority escalation to CRITICAL.",
+    tagline: "Primary demonstration scenario",
+    description: "Demonstration of the survivor, thermal-confirmation, range, geotag, and compound-risk sequence.",
     baseLocation: HOME_COORDINATE,
     polygon: SEARCH_POLYGON,
     waypoints: LAWNMOWER_GRID,
     totalAreaHa: 1.8,
     expectedDurationSec: 100,
     scheduledEvents: [
-      { timeSec: 0, type: "WAYPOINT", data: { wp: 0, note: "Mission initialized. Pixhawk pre-arm checks nominal." } },
-      { timeSec: 6, type: "TAKEOFF", data: { alt: 25.0, note: "Takeoff climb initiated. Reaching 25.0m AGL." } },
-      { timeSec: 14, type: "WAYPOINT", data: { wp: 1, note: "Search quadrant entered. Lawnmower sweep active." } },
+      { timeSec: 0, type: "WAYPOINT", data: { wp: 0, note: "Simulation initialized. Flight-control state set to nominal." } },
+      { timeSec: 6, type: "TAKEOFF", data: { alt: 25.0, note: "Simulated takeoff to 25.0m AGL." } },
+      { timeSec: 14, type: "WAYPOINT", data: { wp: 1, note: "Simulated search pattern active." } },
       
       // Survivor Detection Sequence
       {
@@ -90,7 +90,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           latitude: 18.52071,
           longitude: 73.85691,
           distanceMeters: 11.4,
-          notes: "RGB visual candidate detected: Person in rubble."
+          notes: "Simulated RGB candidate: person in rubble."
         }
       },
       {
@@ -100,7 +100,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           id: "INC-0042",
           peakTemp: 34.8,
           confirmed: true,
-          notes: "MLX90640 thermal confirmation: Human heat signature 34.8°C verified."
+          notes: "Simulated MLX90640 confirmation: heat signature 34.8°C."
         }
       },
       {
@@ -109,7 +109,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
         data: {
           id: "INC-0042",
           distanceMeters: 11.4,
-          notes: "AR0144 Stereo depth: Ranging confirmed at 11.4m line-of-sight."
+          notes: "Simulated AR0144 range: 11.4m line-of-sight."
         }
       },
       {
@@ -119,7 +119,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           id: "ALT-101",
           severity: "CRITICAL",
           title: "CRITICAL: SURVIVOR DETECTED",
-          message: "Thermally confirmed human presence at 18.52071° N, 73.85691° E. Triage dispatch alerted.",
+          message: "Simulated thermally confirmed human presence at 18.52071° N, 73.85691° E.",
           incidentId: "INC-0042"
         }
       },
@@ -137,7 +137,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           distanceMeters: 18.4,
           latitude: 18.52085,
           longitude: 73.85705,
-          notes: "RGB & MLX90640 detection: Active fire plume within 18.4m of survivor zone."
+          notes: "Simulated RGB + thermal fire detection 18.4m from survivor zone."
         }
       },
       {
@@ -147,7 +147,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           id: "ALT-102",
           severity: "CRITICAL",
           title: "COMPOUND THREAT: FIRE PROXIMITY",
-          message: "Fire detected 18.4m from Survivor INC-0042. Risk escalated to MAXIMUM CRITICAL.",
+          message: "Simulated fire proximity escalated the incident to CRITICAL.",
           incidentId: "INC-0043"
         }
       },
@@ -164,7 +164,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           distanceMeters: 8.2,
           latitude: 18.52055,
           longitude: 73.85680,
-          notes: "AR0144 stereo flagged collapsed roof slab blocking west access."
+          notes: "Simulated stereo detection of debris on the west access route."
         }
       },
       {
@@ -180,8 +180,8 @@ export const SCENARIOS: ScenarioDefinition[] = [
       },
 
       // RTL & Completion
-      { timeSec: 92, type: "RTL", data: { note: "Grid coverage 100%. Auto Return-to-Launch initiated." } },
-      { timeSec: 100, type: "COMPLETE", data: { note: "Touchdown at launch coordinates. Mission SEARCH-01 complete." } },
+      { timeSec: 92, type: "RTL", data: { note: "Simulated grid completion. Return-to-Launch initiated." } },
+      { timeSec: 100, type: "COMPLETE", data: { note: "Simulation complete. Return-to-launch sequence finished." } },
     ]
   },
   {
@@ -209,7 +209,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           distanceMeters: 6.8,
           latitude: 18.52060,
           longitude: 73.85660,
-          notes: "Downed live transmission line sparking on pavement."
+          notes: "Simulated downed electrical-line hazard."
         }
       },
       {
@@ -234,7 +234,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           distanceMeters: 14.2,
           latitude: 18.52095,
           longitude: 73.85720,
-          notes: "Cracked load-bearing column with 35% displacement."
+          notes: "Simulated structural-damage observation."
         }
       },
       { timeSec: 75, type: "RTL", data: { note: "Survey concluded. RTL engaged." } },
@@ -245,7 +245,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
     id: "COMM_LOSS_FAILSAFE",
     name: "Telemetry Link Interruption Drill",
     tagline: "Offline Local Autonomy & Failsafe Verification",
-    description: "Simulates 433 MHz link loss. Demonstrates continuous local ROS 2 inference on Raspberry Pi 4B 4GB and automatic RTL failsafe.",
+    description: "Simulates a 433 MHz telemetry interruption and the corresponding local fallback and RTL sequence.",
     baseLocation: HOME_COORDINATE,
     polygon: SEARCH_POLYGON,
     waypoints: LAWNMOWER_GRID.slice(0, 10),
@@ -274,7 +274,7 @@ export const SCENARIOS: ScenarioDefinition[] = [
           message: "Pixhawk failsafe timer triggered. Autonomous return to home commenced.",
         }
       },
-      { timeSec: 55, type: "COMPLETE", data: { note: "UAV landed safely under local failsafe routine." } }
+      { timeSec: 55, type: "COMPLETE", data: { note: "Simulation complete under the configured failsafe sequence." } }
     ]
   }
 ];
