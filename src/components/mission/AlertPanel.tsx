@@ -37,7 +37,7 @@ export function AlertPanel() {
           </h3>
         </div>
         <span className="text-[10px] font-mono text-slate-400">
-          REAL-TIME DISPATCH
+          SIMULATED ALERT DISPATCH
         </span>
       </div>
 
