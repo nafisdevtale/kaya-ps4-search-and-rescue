@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180">
+  <defs>
+    <style>
+      .title { font: 700 32px Arial, Helvetica, sans-serif; fill: #17365d; }
+      .team  { font: 700 16px Arial, Helvetica, sans-serif; fill: #17365d; }
+      .section { font: 700 20px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .sub { font: 600 14px Arial, Helvetica, sans-serif; fill: #334155; }
+      .label { font: 700 14px Arial, Helvetica, sans-serif; fill: #0f172a; }
+      .body { font: 500 13px Arial, Helvetica, sans-serif; fill: #334155; }
+      .small { font: 500 12px Arial, Helvetica, sans-serif; fill: #475569; }
+      .tiny { font: 600 11px Arial, Helvetica, sans-serif; fill: #475569; }
+      .panel { stroke-width: 2; }
+      .box { fill: #fff; stroke-width: 2; }
+      .line { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .lineH { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .chip { font: 700 12px Arial, Helvetica, sans-serif; fill: #fff; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1180" fill="#ffffff"/>
+
+  <!-- HEADER -->
+  <rect x="300" y="20" width="1000" height="54" rx="18" fill="#ffffff" stroke="#1e4d86" stroke-width="3"/>
+  <text x="800" y="55" text-anchor="middle" class="title">PS4 SEARCH &amp; RESCUE — UAV SYSTEM ARCHITECTURE</text>
+  <rect x="620" y="82" width="360" height="32" rx="12" fill="#ffffff" stroke="#1e4d86" stroke-width="2"/>
+  <text x="800" y="104" text-anchor="middle" class="team">TEAM ANOMALY · KT-2047</text>
+
+  <!-- TOP PANELS -->
+  <!-- 1 POWER -->
+  <rect x="30" y="132" width="370" height="350" rx="18" fill="#fff3f3" stroke="#d96a6a" class="panel"/>
+  <rect x="30" y="132" width="370" height="40" rx="18" fill="#ffdede" stroke="#d96a6a" stroke-width="2"/>
+  <text x="48" y="159" class="section">1. POWER SYSTEM</text>
+  <text x="48" y="194" class="sub">11.1 V 3S propulsion + regulated 5 V rail</text>
+
+  <rect x="52" y="220" width="132" height="70" rx="12" class="box" stroke="#c95d5d"/>
+  <text x="118" y="242" text-anchor="middle" class="label">3S LiPo</text>
+  <text x="118" y="261" text-anchor="middle" class="body">11.1 V · 5200 mAh</text>
+  <text x="118" y="279" text-anchor="middle" class="small">40C / 80C burst</text>
+
+  <rect x="207" y="235" width="54" height="42" rx="8" fill="#f7bf3b" stroke="#916d16" stroke-width="2"/>
+  <text x="234" y="292" text-anchor="middle" class="tiny">XT60</text>
+
+  <rect x="282" y="216" width="94" height="74" rx="12" class="box" stroke="#b96565"/>
+  <text x="329" y="239" text-anchor="middle" class="label">PM02</text>
+  <text x="329" y="258" text-anchor="middle" class="body">V / I sense</text>
+  <text x="329" y="276" text-anchor="middle" class="small">Pixhawk power</text>
+
+  <path d="M184 255H207" class="lineH" stroke="#d80000"/>
+  <path d="M261 255H282" class="lineH" stroke="#d80000"/>
+
+  <rect x="52" y="326" width="140" height="64" rx="12" class="box" stroke="#b96565"/>
+  <text x="122" y="349" text-anchor="middle" class="label">5 V / 5 A Buck</text>
+  <text x="122" y="369" text-anchor="middle" class="body">Pi + peripherals</text>
+
+  <rect x="232" y="326" width="144" height="64" rx="12" class="box" stroke="#b96565"/>
+  <text x="304" y="349" text-anchor="middle" class="label">F450 PDB</text>
+  <text x="304" y="369" text-anchor="middle" class="body">11.1 V distribution</text>
+
+  <path d="M118 290V326" class="line" stroke="#111827"/>
+  <path d="M329 290V308H304V326" class="lineH" stroke="#d80000"/>
+  <path d="M184 290V326H122" class="lineH" stroke="#d80000"/>
+  <text x="48" y="427" class="body">High-current path: Battery → XT60 → PM02 → PDB</text>
+  <text x="48" y="449" class="body">Regulated rail: 11.1 V → 5 V / 5 A for Raspberry Pi</text>
+
+  <!-- 2 FLIGHT -->
+  <rect x="420" y="132" width="370" height="350" rx="18" fill="#eef7ff" stroke="#4b9bdf" class="panel"/>
+  <rect x="420" y="132" width="370" height="40" rx="18" fill="#dceeff" stroke="#4b9bdf" stroke-width="2"/>
+  <text x="438" y="159" class="section">2. FLIGHT CONTROL</text>
+  <text x="438" y="194" class="sub">Stabilization, navigation, telemetry, PWM</text>
+
+  <rect x="458" y="216" width="292" height="112" rx="16" fill="#202833" stroke="#17365d" stroke-width="3"/>
+  <text x="604" y="253" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Pixhawk 2.4.8</text>
+  <text x="604" y="278" text-anchor="middle" font-size="14" font-weight="600" fill="#dbeafe">ArduCopter flight controller</text>
+  <text x="604" y="302" text-anchor="middle" font-size="12" fill="#cbd5e1">IMU · barometer · flight state</text>
+  
+
+  <rect x="458" y="343" width="136" height="60" rx="11" class="box" stroke="#4b9bdf"/>
+  <text x="526" y="366" text-anchor="middle" class="label">GPS + Compass</text>
+  <text x="526" y="385" text-anchor="middle" class="body">UART + I²C</text>
+
+  <rect x="614" y="343" width="136" height="60" rx="11" class="box" stroke="#6c5cc7"/>
+  <text x="682" y="366" text-anchor="middle" class="label">433 MHz SiK</text>
+  <text x="682" y="385" text-anchor="middle" class="body">TELEM1</text>
+
+  <path d="M526 343V322" class="line" stroke="#238b57"/>
+  <path d="M682 343V322" class="line" stroke="#6c5cc7"/>
+  <text x="438" y="432" class="body">PWM1–PWM4 → four ESCs</text>
+  <text x="438" y="454" class="body">TELEM2 ↔ Raspberry Pi via MAVLink / serial</text>
+
+  <!-- 3 SENSORS -->
+  <rect x="810" y="132" width="370" height="350" rx="18" fill="#effbef" stroke="#4ea55c" class="panel"/>
+  <rect x="810" y="132" width="370" height="40" rx="18" fill="#dff6df" stroke="#4ea55c" stroke-width="2"/>
+  <text x="828" y="159" class="section">3. SENSORS &amp; PERCEPTION</text>
+  <text x="828" y="194" class="sub">RGB, thermal, stereo and navigation inputs</text>
+
+  <rect x="832" y="218" width="326" height="62" rx="11" class="box" stroke="#4ea55c"/>
+  <text x="850" y="242" class="label">Pi Camera Module 3</text>
+  <text x="850" y="262" class="body">RGB · 11.9 MP · IMX708 · CSI-2</text>
+
+  <rect x="832" y="294" width="326" height="62" rx="11" class="box" stroke="#db8c38"/>
+  <text x="850" y="318" class="label">MLX90640 Thermal Array</text>
+  <text x="850" y="338" class="body">32 × 24 IR · I²C · thermal confirmation</text>
+
+  <rect x="832" y="370" width="326" height="62" rx="11" class="box" stroke="#4d78c4"/>
+  <text x="850" y="394" class="label">Waveshare AR0144 Stereo</text>
+  <text x="850" y="414" class="body">2 MP · USB/UVC · 52 mm baseline · depth</text>
+
+  <text x="832" y="456" class="small">GPS/IMU state comes from Pixhawk</text>
+
+  <!-- 4 COMPUTING -->
+  <rect x="1200" y="132" width="370" height="350" rx="18" fill="#f7f0ff" stroke="#7f58c9" class="panel"/>
+  <rect x="1200" y="132" width="370" height="40" rx="18" fill="#eadcff" stroke="#7f58c9" stroke-width="2"/>
+  <text x="1218" y="159" class="section">4. COMPUTING &amp; ONBOARD AI</text>
+  <text x="1218" y="194" class="sub">Perception, fusion, risk logic, local storage</text>
+
+  <rect x="1230" y="220" width="310" height="88" rx="14" class="box" stroke="#7f58c9"/>
+  <text x="1385" y="247" text-anchor="middle" class="label">Raspberry Pi 4 Model B · 4 GB</text>
+  <text x="1385" y="271" text-anchor="middle" class="body">ROS 2 Humble · OpenCV · lightweight AI</text>
+  <text x="1385" y="292" text-anchor="middle" class="body">Local processing / storage</text>
+
+  <rect x="1230" y="330" width="145" height="96" rx="11" class="box" stroke="#7f58c9"/>
+  <text x="1303" y="354" text-anchor="middle" class="label">Perception</text>
+  <text x="1246" y="377" class="small">• Person / fire</text>
+  <text x="1246" y="396" class="small">• Smoke / flood</text>
+  <text x="1246" y="415" class="small">• Thermal hotspot</text>
+
+  <rect x="1395" y="330" width="145" height="96" rx="11" class="box" stroke="#7f58c9"/>
+  <text x="1468" y="354" text-anchor="middle" class="label">Fusion &amp; Risk</text>
+  <text x="1410" y="377" class="small">• Stereo depth</text>
+  <text x="1410" y="396" class="small">• Geo-tagging</text>
+  <text x="1410" y="415" class="small">• Alert priority</text>
+
+  <text x="1230" y="448" class="small">Interfaces: CSI-2 · I²C · USB/UVC · UART</text>
+  <text x="1230" y="470" class="small">Prototype rules operate locally; no cloud dependency</text>
+
+  <!-- SYSTEM INTERFACE STRIP -->
+  <rect x="30" y="496" width="1540" height="42" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="50" y="523" class="label">SYSTEM INTERFACES</text>
+  <text x="220" y="523" class="body">11.1 V → PDB / ESCs</text>
+  <text x="470" y="523" class="body">5 V → Pi + sensors</text>
+  <text x="700" y="523" class="body">UART / I²C / PWM → Pixhawk</text>
+  <text x="1040" y="523" class="body">MAVLink / serial → Pi</text>
+  <text x="1305" y="523" class="body">USB / UVC → stereo</text>
+
+  <!-- 5 PROPULSION -->
+  <rect x="30" y="560" width="1540" height="180" rx="18" fill="#fff6e7" stroke="#e49b2d" class="panel"/>
+  <rect x="30" y="560" width="1540" height="40" rx="18" fill="#ffe9c5" stroke="#e49b2d" stroke-width="2"/>
+  <text x="48" y="587" class="section">5. PROPULSION SYSTEM</text>
+  <text x="48" y="619" class="sub">4 × A2212 1000 KV brushless motors · 30 A SimonK ESCs · 1045 propellers</text>
+
+  <!-- PWM bus -->
+  <text x="48" y="650" class="tiny">PWM COMMANDS</text>
+  <path d="M170 650H1510" class="lineH" stroke="#1675d1"/>
+
+  <!-- four ESC blocks -->
+  <g>
+    <rect x="70" y="670" width="315" height="50" rx="11" class="box" stroke="#d17d1c"/>
+    <rect x="405" y="670" width="315" height="50" rx="11" class="box" stroke="#d17d1c"/>
+    <rect x="740" y="670" width="315" height="50" rx="11" class="box" stroke="#d17d1c"/>
+    <rect x="1075" y="670" width="315" height="50" rx="11" class="box" stroke="#d17d1c"/>
+    <text x="227" y="692" text-anchor="middle" class="label">ESC 1 · 30 A</text>
+    <text x="227" y="710" text-anchor="middle" class="tiny">A2212 1000 KV · 1045 prop · PWM1</text>
+    <text x="562" y="692" text-anchor="middle" class="label">ESC 2 · 30 A</text>
+    <text x="562" y="710" text-anchor="middle" class="tiny">A2212 1000 KV · 1045 prop · PWM2</text>
+    <text x="897" y="692" text-anchor="middle" class="label">ESC 3 · 30 A</text>
+    <text x="897" y="710" text-anchor="middle" class="tiny">A2212 1000 KV · 1045 prop · PWM3</text>
+    <text x="1232" y="692" text-anchor="middle" class="label">ESC 4 · 30 A</text>
+    <text x="1232" y="710" text-anchor="middle" class="tiny">A2212 1000 KV · 1045 prop · PWM4</text>
+  </g>
+  <path d="M227 650V670M562 650V670M897 650V670M1232 650V670" class="line" stroke="#1675d1"/>
+
+  <!-- 6 GROUND -->
+  <rect x="30" y="764" width="500" height="230" rx="18" fill="#fff3f3" stroke="#d96a6a" class="panel"/>
+  <rect x="30" y="764" width="500" height="40" rx="18" fill="#ffdede" stroke="#d96a6a" stroke-width="2"/>
+  <text x="48" y="791" class="section">6. GROUND STATION</text>
+  <text x="48" y="827" class="sub">433 MHz SiK ground radio → USB → operator laptop</text>
+
+  <rect x="48" y="850" width="210" height="102" rx="12" class="box" stroke="#4b7bb8"/>
+  <text x="153" y="877" text-anchor="middle" class="label">Operator Laptop</text>
+  <text x="68" y="900" class="small">• Mission map</text>
+  <text x="68" y="920" class="small">• Detection alerts</text>
+  <text x="68" y="940" class="small">• Mission status / logs</text>
+
+  <rect x="294" y="850" width="194" height="102" rx="12" class="box" stroke="#6c5cc7"/>
+  <text x="391" y="877" text-anchor="middle" class="label">Ground SiK Radio</text>
+  <text x="391" y="901" text-anchor="middle" class="body">USB ↔ 433 MHz</text>
+  <text x="391" y="923" text-anchor="middle" class="body">Telemetry / command</text>
+  <path d="M258 901H294" class="lineH" stroke="#1675d1"/>
+
+  <!-- 7 DATA FLOW -->
+  <rect x="550" y="764" width="1020" height="230" rx="18" fill="#eef7ff" stroke="#4b9bdf" class="panel"/>
+  <rect x="550" y="764" width="1020" height="40" rx="18" fill="#dceeff" stroke="#4b9bdf" stroke-width="2"/>
+  <text x="568" y="791" class="section">7. HIGH-LEVEL DATA FLOW</text>
+
+  <rect x="578" y="846" width="270" height="105" rx="12" class="box" stroke="#4b9bdf"/>
+  <text x="713" y="872" text-anchor="middle" class="label">Sensors + Flight State</text>
+  <text x="596" y="896" class="small">RGB · thermal · stereo</text>
+  <text x="596" y="918" class="small">GPS / IMU · Pixhawk state</text>
+  <text x="596" y="940" class="small">Mission inputs</text>
+
+  <rect x="894" y="846" width="300" height="105" rx="12" class="box" stroke="#7f58c9"/>
+  <text x="1044" y="872" text-anchor="middle" class="label">Raspberry Pi 4B</text>
+  <text x="912" y="896" class="small">Perception → sensor fusion → risk</text>
+  <text x="912" y="918" class="small">Detection → geo-tagging → mission data</text>
+  <text x="912" y="940" class="small">Local storage / decision support</text>
+
+  <rect x="1240" y="846" width="300" height="105" rx="12" class="box" stroke="#1675d1"/>
+  <text x="1390" y="872" text-anchor="middle" class="label">Mission Output</text>
+  <text x="1258" y="896" class="small">Alerts · detections · map markers</text>
+  <text x="1258" y="918" class="small">Mission status · logs · telemetry</text>
+  <text x="1258" y="940" class="small">Operator command / response</text>
+
+  <path d="M848 899H894M1194 899H1240" class="lineH" stroke="#1675d1"/>
+  <polygon points="894,899 884,893 884,905" fill="#1675d1"/>
+  <polygon points="1240,899 1230,893 1230,905" fill="#1675d1"/>
+
+  <!-- 8/9 -->
+  <rect x="30" y="1014" width="730" height="138" rx="18" fill="#ffffff" stroke="#7890a8" stroke-width="2"/>
+  <rect x="30" y="1014" width="730" height="38" rx="18" fill="#f1f5f9" stroke="#7890a8" stroke-width="2"/>
+  <text x="48" y="1040" class="section">8. LEGEND</text>
+  <line x1="55" y1="1080" x2="105" y2="1080" stroke="#d80000" stroke-width="6"/>
+  <text x="118" y="1085" class="body">11.1 V high-current power</text>
+  <line x1="55" y1="1112" x2="105" y2="1112" stroke="#1675d1" stroke-width="6"/>
+  <text x="118" y="1117" class="body">PWM / UART / MAVLink / data</text>
+  <line x1="385" y1="1080" x2="435" y2="1080" stroke="#238b57" stroke-width="6"/>
+  <text x="448" y="1085" class="body">Sensor / navigation interface</text>
+  <line x1="385" y1="1112" x2="435" y2="1112" stroke="#6c5cc7" stroke-width="6"/>
+  <text x="448" y="1117" class="body">Telemetry link</text>
+
+  <rect x="780" y="1014" width="790" height="138" rx="18" fill="#ffffff" stroke="#7890a8" stroke-width="2"/>
+  <rect x="780" y="1014" width="790" height="38" rx="18" fill="#f1f5f9" stroke="#7890a8" stroke-width="2"/>
+  <text x="798" y="1040" class="section">9. SYSTEM FEATURES</text>
+  <text x="800" y="1080" class="body">• Autonomous-navigation architecture</text>
+  <text x="800" y="1104" class="body">• Multi-sensor perception: RGB + thermal + stereo</text>
+  <text x="1160" y="1080" class="body">• Local/offline processing</text>
+  <text x="1160" y="1104" class="body">• Geo-tagged detections + telemetry</text>
+  <text x="800" y="1132" class="body">• Prototype search-and-rescue support; autonomous flight validation is outside this diagram</text>
+</svg>
