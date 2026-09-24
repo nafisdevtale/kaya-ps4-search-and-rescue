@@ -132,39 +132,39 @@ export class SimulationEngine {
         rgbCamera: {
           name: "Raspberry Pi Camera Module 3",
           status: "OPERATIONAL",
-          details: "1080p30 Edge Pipeline Active",
+          details: "1080p30 edge pipeline (simulated)",
         },
         thermalSensor: {
           name: "MLX90640 32x24 FIR",
           status: "OPERATIONAL",
-          details: "I2C 400kHz · 8 Hz Refresh",
+          details: "I2C 400kHz · 8 Hz refresh (simulated)",
         },
         stereoCamera: {
           name: "Waveshare AR0144 Global Shutter",
           status: "OPERATIONAL",
-          details: "Hardware Sync Disparity Running",
+          details: "Stereo disparity (simulated)",
         },
         gpsModule: {
           name: "Ublox NEO-M8N + Compass",
           status: "OPERATIONAL",
-          details: "3D Fix · 16 Satellites Tracked",
+          details: "3D fix · 16 satellites (simulated)",
         },
       },
       comms: {
         mavlink433: {
           name: "433 MHz SiK Telemetry",
           status: "OPERATIONAL",
-          details: "57600 baud · Packet loss 0.2%",
+          details: "57600 baud · 0.2% packet loss (simulated)",
         },
         wifiTelemetry: {
           name: "Local 5GHz Wi-Fi Ground Link",
           status: "OPERATIONAL",
-          details: "Direct WebSocket to Command Station",
+          details: "Local dashboard transport (simulated)",
         },
         internetOptional: {
           name: "External Internet Uplink",
           status: "WARNING",
-          details: "Offline Mode Active (Core System Autonomous)",
+          details: "Offline-capable architecture (simulated)",
         },
       },
     };
@@ -451,7 +451,7 @@ export class SimulationEngine {
             this.addTimelineEvent(
               "PERCEPTION",
               `${detData.class} Identified`,
-              `AI candidate localized at ${detData.latitude.toFixed(5)}, ${detData.longitude.toFixed(5)} (${detData.distanceMeters}m).`,
+              `Simulated model candidate localized at ${detData.latitude.toFixed(5)}, ${detData.longitude.toFixed(5)} (${detData.distanceMeters}m).`,
               priority === "CRITICAL" ? "critical" : "warning",
               newDetection.id
             );
@@ -470,7 +470,7 @@ export class SimulationEngine {
             this.notifyDetection(incident);
             this.addTimelineEvent(
               "FUSION",
-              "Thermal Heat Signature Verified",
+              "Simulated thermal confirmation",
               `MLX90640 confirmed peak temperature ${ev.data.peakTemp}°C. Survivor state confirmed.`,
               "critical",
               incident.id
