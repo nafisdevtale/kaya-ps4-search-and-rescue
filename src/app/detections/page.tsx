@@ -43,7 +43,7 @@ export default function DetectionsPage() {
             uavAltitudeAtCapture: 25.0,
             priority: "CRITICAL",
             status: "ACTIVE",
-            notes: "Adult survivor under light rubble masonry. Hand movement observed.",
+            notes: "Simulated survivor target under light rubble masonry.",
             fusionBreakdown: {
               rgbConfidence: 0.91,
               thermalConfidence: 0.96,
@@ -65,7 +65,7 @@ export default function DetectionsPage() {
             uavAltitudeAtCapture: 25.2,
             priority: "HIGH",
             status: "ACTIVE",
-            notes: "Active flame hotspot 18.4m east of survivor perimeter.",
+            notes: "Simulated fire hotspot 18.4m east of survivor perimeter.",
             fusionBreakdown: {
               rgbConfidence: 0.93,
               thermalConfidence: 0.98,
@@ -86,7 +86,7 @@ export default function DetectionsPage() {
             uavAltitudeAtCapture: 24.8,
             priority: "MEDIUM",
             status: "ACTIVE",
-            notes: "Collapsed concrete slab obstructing ground rescue vehicle approach.",
+            notes: "Simulated debris obstruction on the ground access route.",
             fusionBreakdown: {
               rgbConfidence: 0.86,
               thermalConfidence: 0.35,
@@ -151,7 +151,7 @@ export default function DetectionsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `ANOMALY_INCIDENTS_${new Date().toISOString().slice(0, 10)}.geojson`;
+    a.download = `PS4_SAR_INCIDENTS_${new Date().toISOString().slice(0, 10)}.geojson`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -244,7 +244,7 @@ export default function DetectionsPage() {
               <th className="py-3 px-3">Incident ID</th>
               <th className="py-3 px-3">Class</th>
               <th className="py-3 px-3">Priority</th>
-              <th className="py-3 px-3">AI Conf</th>
+              <th className="py-3 px-3">Model Conf</th>
               <th className="py-3 px-3">Thermal FIR</th>
               <th className="py-3 px-3">Distance</th>
               <th className="py-3 px-3">Coordinates (Lat, Lon)</th>
