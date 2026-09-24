@@ -225,10 +225,7 @@ export interface MissionHistoryRecord {
   summary: string;
 }
 
-/**
- * Data Provider Interface (Clean Adapter Pattern)
- * Allows the frontend to swap between Simulation and physical MAVLink/ROS2 hardware
- */
+/** Shared interface between the dashboard and its data source. */
 export interface IDataProvider {
   mode: "SIMULATION" | "LIVE";
   init(): void;
