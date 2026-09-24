@@ -169,8 +169,4 @@ npm run start
 
 The current simulation build requires no API keys or application-side secrets.
 
-## Engineering boundary
-
-This is a Buildathon prototype baseline, not a certified aircraft design. Before autonomous flight, the assembled platform requires thrust/weight, current-draw, battery-sag, 5 V rail, center-of-gravity, motor-direction, GPS/compass-interference, telemetry and failsafe validation. Exact purchased module pinouts and voltage levels must also be verified before wiring.
-
 **Team ANOMALY · KT-2047 · KAYA Buildathon 2026**
