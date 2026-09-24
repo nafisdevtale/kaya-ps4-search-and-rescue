@@ -100,13 +100,13 @@ export function IncidentDetailModal() {
             <div className="grid grid-cols-3 gap-2">
               <div className="p-2 rounded bg-[#070b10] border border-[#141f2d]">
                 <div className="text-[10px] text-slate-500 flex items-center justify-between">
-                  <span>RGB AI</span>
+                  <span>RGB MODEL</span>
                   <Eye className="w-3 h-3 text-telemetry-blue" />
                 </div>
                 <div className="text-sm font-bold text-white mt-1">
                   {(selectedIncident.confidence * 100).toFixed(0)}%
                 </div>
-                <div className="text-[9px] text-slate-400">YOLO Model</div>
+                <div className="text-[9px] text-slate-400">Object detector</div>
               </div>
 
               <div className="p-2 rounded bg-[#070b10] border border-[#141f2d]">
