@@ -136,7 +136,7 @@ export function ThermalSensorPanel() {
           )}
         </span>
         <span className={hasSurvivor ? "text-emerald-400 font-semibold" : "text-slate-500"}>
-          {hasSurvivor ? "34.8°C BODY HEAT VERIFIED" : "NO CRITICAL ANOMALY"}
+          {hasSurvivor ? "34.8°C SIMULATED HEAT MATCH" : "NO HOTSPOT"}
         </span>
       </div>
     </div>
