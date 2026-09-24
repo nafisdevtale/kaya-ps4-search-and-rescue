@@ -3,40 +3,93 @@
 **KAYA Buildathon 2026 · PS4 — AI-Powered Autonomous Drone for Search-and-Rescue**  
 **Team:** ANOMALY · **Team ID:** KT-2047
 
-## Scope
+## Project status
 
-This repository contains the command-center software, simulation data path, and engineering documentation for the proposed PS4 search-and-rescue system.
+This repository contains the **PS4 Search & Rescue Command Center**, its deterministic mission simulation, and the engineering documentation for the proposed UAV platform.
 
-The current web application is a **deterministic simulation**. It demonstrates the operator workflow, sensor-fusion sequence, detection catalog, mission controls, alerts, and system-health views without requiring a physical UAV.
-
-### Current status
+> **Important:** The dashboard is a simulation. The physical UAV, live Pixhawk/MAVLink link, ROS 2 companion pipeline, sensor hardware and autonomous flight have not been integrated or flight-validated in this repository.
 
 | Area | Status |
 |---|---|
 | Command-center web application | Implemented |
 | Mission simulation | Implemented |
-| Detection / fusion / risk workflow | Implemented as simulation logic |
-| Physical UAV | Not integrated |
+| Detection / fusion / risk workflow | Implemented as deterministic simulation logic |
+| Physical UAV integration | Not integrated |
 | Pixhawk / MAVLink live telemetry | Architecture defined; not connected |
-| ROS 2 companion-computer pipeline | Architecture defined; not connected |
-| Field / flight validation | Not performed in this repository |
+| ROS 2 companion pipeline | Architecture defined; not connected |
+| Physical sensor integration | Not validated |
+| Autonomous flight | Not validated |
 
-No simulated value should be interpreted as a flight-test or field-test result.
+## Engineering package
+
+The engineering artifacts are intentionally separated by purpose:
+
+| Artifact | Purpose |
+|---|---|
+| [Final BOM](docs/submission/BOM_Final.pdf) | Procurement baseline, specifications, quantities and cost |
+| [Circuit Schematic](docs/submission/Circuit_Schematic.pdf) | Electrical power, control and data interfaces |
+| [System Architecture](docs/submission/System_Architecture.png) | System-level hardware, data-flow and functional architecture |
+| [System Review](docs/submission/System_Review_Engineering_Document.pdf) | Detailed engineering explanation, interfaces, validation and limitations |
+| [Engineering Package Guide](docs/ENGINEERING_PACKAGE.md) | Document hierarchy and submission guidance |
+
+The **BOM** is the procurement source of truth, the **circuit schematic** is the electrical-interface source of truth, and the **system architecture** is the system-level functional source of truth. The **System Review** explains how these artifacts fit together.
 
 ## System architecture
 
+![PS4 Search & Rescue UAV system architecture](docs/submission/System_Architecture.png)
+
+### Physical data path
+
 ```
-RGB Camera ───────┐
-Thermal Sensor ───┼──> Raspberry Pi 4B ──> Perception / Fusion ──> Risk Engine
-Stereo Camera ────┘          ▲                                      │
-                             │                                      ▼
-                        MAVLink / Serial                      Alert + Geotag
-                             │                                      │
-                       Pixhawk 2.4.8                                ▼
-                                                               Command Center
+3S LiPo
+  │
+  ├── Pixhawk power module ──> Pixhawk 2.4.8
+  │                              ├── PWM 1–4 ──> 30 A ESCs ──> A2212 motors
+  │                              ├── GPS / compass
+  │                              ├── TELEM1 ──> 433 MHz SiK telemetry ──> ground laptop
+  │                              └── TELEM2 / MAVLink ──> Raspberry Pi 4B
+  │
+  └── 5 V / 5 A buck ──> Raspberry Pi 4B + selected peripherals
+
+RGB Camera 3 ───────┐
+MLX90640 ───────────┼──> Raspberry Pi 4B ──> perception / fusion / risk / geotagging
+AR0144 Stereo ──────┘                                  │
+                                                       └──> command center
 ```
 
-The intended physical integration path is:
+## Hardware baseline
+
+- F450/Q450 450 mm frame with integrated PCB/power distribution
+- 4 × A2212 1000 KV BLDC + matched 30 A SimonK ESCs + 1045 propellers
+- Pixhawk 2.4.8 + GPS/compass + power module
+- Raspberry Pi 4 Model B, 4 GB
+- Samsung EVO Plus 128 GB microSD
+- Raspberry Pi Camera Module 3
+- MLX90640 32 × 24 thermal module
+- Waveshare AR0144 synchronized stereo camera
+- 3S 11.1 V 5200 mAh 40C/80C LiPo
+- 5 V / 5 A synchronous buck converter
+- 433 MHz, 100 mW-class SiK telemetry pair
+- F450/F550 landing skid
+- Wiring and integration hardware
+- B3 2S/3S LiPo charger as separate test-support procurement
+
+The final procurement list is **₹44,636.73** against a **₹46,000** ceiling, leaving **₹1,363.27** headroom. The documented stress case is **₹45,152.97**. The charger is support procurement rather than airborne payload.
+
+## Capability coverage
+
+The Buildathon capability position deliberately separates architecture from evidence:
+
+- Autonomous navigation: architecture defined; flight validation pending.
+- On-device AI: architecture defined; physical inference not validated.
+- Multi-sensor fusion: deterministic simulation implemented; physical integration pending.
+- Hazard classification: simulation logic implemented; field/model validation pending.
+- Geo-tagged mapping: simulation workflow implemented.
+- Emergency alerting: simulation workflow implemented.
+- Offline resilience: designed for local/offline aircraft-side processing.
+- Command center: implemented as deterministic simulation.
+
+## Software architecture
 
 ```
 Pixhawk 2.4.8
@@ -46,103 +99,62 @@ MAVLink / Serial
       ▼
 Raspberry Pi 4B · 4 GB
       │
-ROS 2 Humble
-      │
+ROS 2 Humble architecture
       ├── RGB perception
-      ├── Thermal analysis
-      ├── Stereo depth
-      ├── Sensor fusion
-      └── Edge risk engine
+      ├── MLX90640 thermal analysis
+      ├── AR0144 stereo depth / SLAM
+      ├── sensor fusion
+      └── edge risk engine
       │
       ▼
-Command Center
+Mission data adapter
+      │
+      ▼
+Next.js command center
 ```
 
-The deployed dashboard currently uses `SimulationDataProvider`; it does not consume live Pixhawk data.
+The deployed dashboard currently uses `SimulationDataProvider`. It does not consume live Pixhawk data.
 
-## Hardware baseline
+## Mission simulation
 
-| Subsystem | Selected hardware |
-|---|---|
-| Airframe | F450 quadcopter frame |
-| Motors | 4 × A2212 1000 KV BLDC |
-| ESCs | 4 × 30 A SimonK |
-| Propellers | 1045 CW/CCW |
-| Battery | 3S 11.1 V 5200 mAh LiPo |
-| Flight controller | Pixhawk 2.4.8 |
-| GNSS | NEO-M8N GPS + compass |
-| Companion computer | Raspberry Pi 4 Model B · 4 GB |
-| RGB camera | Raspberry Pi Camera Module 3 |
-| Thermal | MLX90640 · 32 × 24 |
-| Stereo | Waveshare AR0144 synchronized stereo camera |
-| Telemetry | 433 MHz SiK radio |
-| Local storage | 128 GB high-endurance microSD |
-| Pi power | 5 V / 5 A buck converter |
+The demonstration sequence covers initialization, takeoff, grid search, visual detection, thermal confirmation, stereo range estimation, geotagging, risk assignment, alert creation, continued search and return-to-launch.
 
-Detailed hardware notes are in [hardware/SYSTEM_SPECIFICATIONS.md](hardware/SYSTEM_SPECIFICATIONS.md).
+Prototype risk rules are demonstration logic and are not emergency-service standards.
 
-## Software stack
-
-- Next.js 16 App Router
-- React 19
-- TypeScript 5.6
-- Tailwind CSS 3.4
-- Leaflet
-- Lucide React
-- Local React state/context
-- Deterministic TypeScript simulation engine
-
-The dashboard has no required API keys or application-side secrets.
-
-## Mission flow
-
-The primary demonstration sequence is:
-
-1. Initialize mission
-2. Arm / take off
-3. Search a predefined polygon using a grid path
-4. Detect a visual candidate
-5. Confirm with thermal data
-6. Estimate range from stereo depth
-7. Combine detection data with UAV pose
-8. Assign a prototype risk priority
-9. Create a geotagged alert
-10. Continue search or return to launch
-
-Prototype priority rules include:
-
-- Survivor + fire within the configured proximity threshold → CRITICAL
-- Survivor → HIGH
-- Fire / flood → HIGH
-- Smoke / debris → MEDIUM
-
-These rules are demonstration logic, not an emergency-services standard.
-
-## Repository layout
+## Repository structure
 
 ```
-src/
-  app/                    Next.js routes
-  components/             Dashboard components
-  adapters/               Simulation data adapter
-  config/                 Project identity and system configuration
-  context/                Mission state
-  simulation/             Scenario definitions and simulation engine
-  types/                  Domain models
-
-hardware/                 Hardware baseline and interfaces
-software/                 ROS 2 / MAVLink integration architecture
+.
+├── docs/
+│   ├── ENGINEERING_PACKAGE.md
+│   └── submission/
+│       ├── BOM_Final.pdf
+│       ├── Circuit_Schematic.pdf
+│       ├── System_Architecture.png
+│       └── System_Review_Engineering_Document.pdf
+├── hardware/
+│   └── SYSTEM_SPECIFICATIONS.md
+├── software/
+│   └── ROS2_PIPELINE.md
+├── src/
+│   ├── adapters/
+│   ├── app/
+│   ├── components/
+│   ├── config/
+│   ├── context/
+│   ├── lib/
+│   ├── simulation/
+│   └── types/
+├── package.json
+└── README.md
 ```
 
-## Run locally
-
-Requirements: Node.js and npm.
+## Local development
 
 ```bash
 git clone https://github.com/nafisdevtale/kaya-ps4-search-and-rescue.git
 cd kaya-ps4-search-and-rescue
-
-npm install
+npm ci
 npm run dev
 ```
 
@@ -155,29 +167,10 @@ npm run build
 npm run start
 ```
 
-## Deployment
+The current simulation build requires no API keys or application-side secrets.
 
-The application is configured as a standard Next.js deployment.
+## Engineering boundary
 
-For Vercel:
-
-1. Import this GitHub repository.
-2. Keep the root directory as `/`.
-3. Use the detected Next.js framework.
-4. Use the default build command.
-5. No environment variables are required for the current simulation build.
-
-After deployment, test:
-
-- `/`
-- `/detections`
-- `/history`
-- `/system`
-- `/architecture`
-- Start the default mission and run the complete simulation once.
-
-## Engineering notes
-
-The physical system is intended to run perception and risk logic locally on the companion computer so that internet access is not required for core aircraft-side processing. The current repository does not claim that the physical implementation has been completed or flight-validated.
+This is a Buildathon prototype baseline, not a certified aircraft design. Before autonomous flight, the assembled platform requires thrust/weight, current-draw, battery-sag, 5 V rail, center-of-gravity, motor-direction, GPS/compass-interference, telemetry and failsafe validation. Exact purchased module pinouts and voltage levels must also be verified before wiring.
 
 **Team ANOMALY · KT-2047 · KAYA Buildathon 2026**
