@@ -90,7 +90,7 @@ export function TopBar() {
               LINK: {telemetry.linkStatus} (433MHz)
             </span>
             <span className="text-slate-500">
-              OFFLINE CORE: READY
+              SIMULATION DATA: LOCAL
             </span>
           </div>
         </div>
