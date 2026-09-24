@@ -49,4 +49,4 @@ The telemetry link carries vehicle and selected mission information. It is not d
 
 ## Engineering boundary
 
-The schematic is an intended prototype interface drawing. Exact connector pinouts, voltage levels, current ratings, common-ground implementation and purchased module revisions must be verified before wiring. Autonomous flight requires staged bench and flight validation.
+The schematic is an intended prototype interface drawing. 
