@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useMission } from "../../context/MissionContext";
-import { Camera, Crosshair, Eye, ShieldCheck } from "lucide-react";
+import { Camera } from "lucide-react";
 
 export function RgbSensorFeed() {
   const { progress, incidents, telemetry } = useMission();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
 
   // Animate simulated optical feed with synthetic camera grain, HUD, and AI bounding boxes
   useEffect(() => {
@@ -164,7 +169,7 @@ export function RgbSensorFeed() {
         </div>
 
         <div className="absolute bottom-2 right-2 text-[10px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-          TIMESTAMP: {telemetry.timestamp}
+          TIMESTAMP: {mounted ? telemetry.timestamp : "--:--:--"}
         </div>
       </div>
 

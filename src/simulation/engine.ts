@@ -64,7 +64,7 @@ export class SimulationEngine {
 
   private createInitialTelemetry(): UAVTelemetry {
     return {
-      timestamp: new Date().toLocaleTimeString(),
+    timestamp: "--:--:--",
       mode: "AUTO",
       batteryPercent: 96,
       batteryVoltage: 12.4,
@@ -573,7 +573,13 @@ export class SimulationEngine {
       const rowArr: number[] = [];
       for (let c = 0; c < cols; c++) {
         // Base ambient temperature with sensor noise
-        let temp = 22.0 + (Math.sin(r * 0.4) + Math.cos(c * 0.3)) * 1.2 + (Math.random() - 0.5) * 0.8;
+       const deterministicNoise =
+  Math.sin(r * 0.91 + c * 1.37) * 0.4;
+
+let temp =
+  22.0 +
+  (Math.sin(r * 0.4) + Math.cos(c * 0.3)) * 1.2 +
+  deterministicNoise;
 
         if (hasSurvivor) {
           const distSq = (r - survivorR) ** 2 + (c - survivorC) ** 2;
