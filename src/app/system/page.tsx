@@ -38,14 +38,14 @@ export default function SystemHealthPage() {
             </h1>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Real-time telemetry from Pixhawk 2.4.8 autopilot and Raspberry Pi 4B (4GB) companion computer
+            Simulation view of Pixhawk 2.4.8 and Raspberry Pi 4B (4GB) health data
           </p>
         </div>
 
         {/* Offline Intelligence Resilience Notice */}
         <div className="flex items-center px-3 py-1.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs">
           <ShieldCheck className="w-4 h-4 mr-2" />
-          <span>CORE INTELLIGENCE 100% OFFLINE CAPABLE</span>
+          <span>DESIGNED FOR OFFLINE OPERATION</span>
         </div>
       </div>
 
@@ -240,8 +240,8 @@ export default function SystemHealthPage() {
               </span>
               <span className="text-[10px] text-emerald-400 font-bold">ACTIVE</span>
             </div>
-            <div className="text-[11px] text-slate-400">Ad-hoc ground station dashboard link</div>
-            <div className="text-[10px] text-slate-500">WebSocket JSON stream + thermal frame broadcast</div>
+            <div className="text-[11px] text-slate-400">Local ground-station link</div>
+            <div className="text-[10px] text-slate-500">Telemetry and sensor-data transport</div>
           </div>
 
           <div className="p-3 rounded bg-[#070b10] border border-[#141f2d] space-y-1">
@@ -253,7 +253,7 @@ export default function SystemHealthPage() {
               <span className="text-[10px] text-amber-400 font-bold">OPTIONAL</span>
             </div>
             <div className="text-[11px] text-slate-400">Disaster Zone Offline Autonomy</div>
-            <div className="text-[10px] text-slate-500">Zero cloud API dependency required for operations</div>
+            <div className="text-[10px] text-slate-500">Core aircraft-side processing is designed to run without internet access</div>
           </div>
         </div>
       </div>
