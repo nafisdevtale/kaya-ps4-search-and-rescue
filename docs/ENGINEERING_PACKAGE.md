@@ -31,10 +31,10 @@ These artifacts are complementary, not duplicate versions of one file.
 
 | File | Location | Use |
 |---|---|---|
-| Final BOM | `docs/submission/BOM_Final.pdf` | BOM / procurement submission |
-| Circuit schematic | `docs/submission/Circuit_Schematic.pdf` | Circuit / electrical schematic submission |
-| System architecture | `docs/submission/System_Architecture.png` | Architecture reference |
-| System review | `docs/submission/System_Review_Engineering_Document.pdf` | Detailed engineering support |
+| Final BOM | `docs/submission/BOM_Final.md` (controlled PDF submitted separately) | BOM / procurement submission |
+| Circuit schematic | `docs/submission/Circuit_Schematic.md` (controlled PDF submitted separately) | Circuit / electrical schematic submission |
+| System architecture | `docs/submission/System_Architecture.svg` | Architecture reference |
+| System review | `docs/submission/System_Review_Engineering_Document.md` (controlled PDF submitted separately) | Detailed engineering support |
 
 ## Consistency rules
 
