@@ -19,7 +19,7 @@ import {
 export default function MissionHistoryPage() {
   const [selectedMission, setSelectedMission] = useState<MissionHistoryRecord | null>(null);
 
-  // High-fidelity simulated mission history records
+  // Demonstration mission records
   const historicalMissions: MissionHistoryRecord[] = [
     {
       id: "SEARCH-01",
@@ -48,7 +48,7 @@ export default function MissionHistoryPage() {
           uavAltitudeAtCapture: 25.0,
           priority: "CRITICAL",
           status: "RESOLVED",
-          notes: "Live survivor extracted by ground rescue unit Alpha-1.",
+          notes: "Simulated ground-response notification for survivor target.",
           fusionBreakdown: { rgbConfidence: 0.91, thermalConfidence: 0.96, depthConfidence: 0.94, poseAccuracy: 0.98, fusedScore: 0.96 },
         },
         {
@@ -64,7 +64,7 @@ export default function MissionHistoryPage() {
           uavAltitudeAtCapture: 25.2,
           priority: "HIGH",
           status: "RESOLVED",
-          notes: "Perimeter foam deployed by fire containment team.",
+          notes: "Simulated fire-containment notification.",
           fusionBreakdown: { rgbConfidence: 0.93, thermalConfidence: 0.98, depthConfidence: 0.91, poseAccuracy: 0.97, fusedScore: 0.94 },
         },
       ],
@@ -80,7 +80,7 @@ export default function MissionHistoryPage() {
       hazardsFound: 5,
       alertsTotal: 4,
       status: "COMPLETED",
-      summary: "Multi-hazard inspection over collapsed industrial sector. Downed power cables and compromised masonry logged with high precision stereo ranging.",
+      summary: "Simulated multi-hazard inspection covering debris, power-line, and structural-risk events.",
       routeCoordinates: [],
       incidents: [
         {
@@ -96,7 +96,7 @@ export default function MissionHistoryPage() {
           uavAltitudeAtCapture: 22.0,
           priority: "CRITICAL",
           status: "RESOLVED",
-          notes: "Power grid isolation verified by municipal utility team.",
+          notes: "Simulated utility hazard notification.",
           fusionBreakdown: { rgbConfidence: 0.89, thermalConfidence: 0.92, depthConfidence: 0.95, poseAccuracy: 0.96, fusedScore: 0.92 },
         },
       ],
@@ -112,7 +112,7 @@ export default function MissionHistoryPage() {
       hazardsFound: 1,
       alertsTotal: 2,
       status: "COMPLETED",
-      summary: "Evaluated zero-optical visibility capabilities. MLX90640 far-infrared sensor successfully localized all 3 test human heat targets in darkness.",
+      summary: "Simulated thermal-search scenario with three target detections.",
       routeCoordinates: [],
       incidents: [],
     },
@@ -127,7 +127,7 @@ export default function MissionHistoryPage() {
         <div className="flex items-center space-x-2">
           <History className="w-5 h-5 text-telemetry-blue" />
           <h1 className="text-base font-bold text-white uppercase tracking-wider">
-            MISSION HISTORY & POST-FLIGHT DEBRIEF
+            MISSION HISTORY & SIMULATION LOG
           </h1>
         </div>
         <p className="text-xs text-slate-400 mt-0.5">
@@ -189,7 +189,7 @@ export default function MissionHistoryPage() {
         <div className="lg:col-span-5 bg-[#0b1017] border border-[#1b2738] rounded-lg p-4 shadow-xl space-y-4">
           <div className="border-b border-[#182638] pb-3">
             <span className="text-[10px] text-slate-500 uppercase tracking-wider block">
-              MISSION DEBRIEF RECORD
+              SIMULATION RUN
             </span>
             <h2 className="text-sm font-bold text-white mt-0.5">
               {currentSelection.id}: {currentSelection.missionName}
@@ -220,7 +220,7 @@ export default function MissionHistoryPage() {
           {/* Operational Summary */}
           <div className="p-3 rounded bg-[#070b10] border border-[#141f2d] text-xs text-slate-300 leading-relaxed">
             <span className="text-[10px] font-bold text-slate-400 block mb-1">
-              AFTER-ACTION SUMMARY:
+              SIMULATION SUMMARY:
             </span>
             {currentSelection.summary}
           </div>
