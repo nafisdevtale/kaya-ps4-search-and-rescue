@@ -13,7 +13,7 @@ useEffect(() => {
   setMounted(true);
 }, []);
 
-  // Animate simulated optical feed with synthetic camera grain, HUD, and AI bounding boxes
+  // Animate the simulated optical feed with camera grain, HUD, and detection boxes
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -76,7 +76,7 @@ useEffect(() => {
       ctx.lineTo(w - margin, h - margin - bracketSize);
       ctx.stroke();
 
-      // 4. Draw AI Bounding Boxes from Active Incidents
+      // 4. Draw detection boxes from active incidents
       const hasSurvivor = incidents.some((i) => i.class === "SURVIVOR" || i.class === "PERSON");
       const hasFire = incidents.some((i) => i.class === "FIRE");
 
@@ -161,7 +161,7 @@ useEffect(() => {
         </div>
 
         <div className="absolute top-2 right-2 text-[10px] font-mono text-slate-300 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
-          YOLO-v8n: RUNNING (12ms)
+          EDGE DETECTOR: SIMULATED
         </div>
 
         <div className="absolute bottom-2 left-2 text-[10px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-sm">
@@ -175,7 +175,7 @@ useEffect(() => {
 
       {/* Footer Status */}
       <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mt-2">
-        <span>YOLO INFERENCE: ACTIVE</span>
+        <span>OBJECT DETECTION: SIMULATED</span>
         <span className="text-slate-300">
           OBJECTS DETECTED: {incidents.length}
         </span>
