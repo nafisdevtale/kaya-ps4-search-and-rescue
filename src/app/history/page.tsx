@@ -131,7 +131,7 @@ export default function MissionHistoryPage() {
           </h1>
         </div>
         <p className="text-xs text-slate-400 mt-0.5">
-          Archived autonomous search operations, route logs, and incident outcomes
+          Simulated mission archive · Demonstration data
         </p>
       </div>
 

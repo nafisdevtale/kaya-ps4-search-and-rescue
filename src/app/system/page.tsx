@@ -87,7 +87,7 @@ export default function SystemHealthPage() {
             </div>
 
             <div className="p-2.5 rounded bg-[#070b10] border border-[#141f2d]">
-              <span className="text-[10px] text-slate-500 block">NVMe / MICROSD</span>
+              <span className="text-[10px] text-slate-500 block">128 GB HIGH-ENDURANCE MICROSD</span>
               <span className="text-base font-bold text-slate-100">
                 {comp.storageUsedGb} / {comp.storageTotalGb} GB
               </span>

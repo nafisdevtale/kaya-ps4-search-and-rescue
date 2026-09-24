@@ -32,7 +32,7 @@ export function SensorFusionVisualizer() {
           </h3>
         </div>
         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-telemetry-blue/10 border border-telemetry-blue/30 text-telemetry-blue font-semibold">
-          ANOMALY FUSION PIPELINE
+          MULTI-MODAL FUSION PIPELINE
         </span>
       </div>
 

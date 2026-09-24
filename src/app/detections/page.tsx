@@ -168,7 +168,7 @@ export default function DetectionsPage() {
             </h1>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Geotagged multi-modal detections synthesized by the ANOMALY edge risk engine
+            Geotagged multi-modal detections synthesized by the edge risk engine
           </p>
         </div>
 
