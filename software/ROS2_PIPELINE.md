@@ -80,7 +80,3 @@ These are prototype demonstration rules, not emergency-service standards.
 | I²C | MLX90640 | Raspberry Pi | Thermal array data |
 | USB 2.0 / UVC | AR0144 | Raspberry Pi | Stereo frames |
 | USB | SiK ground unit | Operator laptop | Telemetry input |
-
-## Physical integration boundary
-
-A future hardware provider may replace the simulation source with MAVLink/ROS 2 data without changing the dashboard's domain model. Before that transition, the team must validate serial wiring, message rates, time synchronization, sensor drivers, CPU load, thermal limits, power stability and failure handling on the actual aircraft.
