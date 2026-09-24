@@ -46,7 +46,3 @@ These artifacts are complementary, not duplicate versions of one file.
 - Simulation values are not flight-test evidence.
 - MLX90640 is a low-resolution thermal array, not an industrial thermal camera.
 - Dedicated LiDAR, RTK GPS, redundant FC, gimbal, gas sensor, Jetson-class compute and cloud AI are outside the MVP.
-
-## Submission check
-
-Use the same project title, team ID, problem statement, BOM total, schematic and architecture image in the submission form. Do not add claims of live telemetry, physical AI inference, autonomous flight or field validation unless those capabilities have actually been tested.
