@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { PROJECT_BRAND } from "../config/branding";
 import { MissionProvider } from "../context/MissionContext";
 import { TopBar } from "../components/TopBar";
@@ -43,6 +44,7 @@ export default function RootLayout({
             </div>
           </footer>
         </MissionProvider>
+        <Analytics />
       </body>
     </html>
   );
