@@ -48,13 +48,13 @@ export default function ArchitecturePage() {
     {
       step: 5,
       title: "PRIORITIZE",
-      desc: "ANOMALY Risk Engine synthesizes compound threat rules (e.g. Survivor + Fire proximity escalates to CRITICAL).",
-      subsystem: "anomaly_risk_engine_node (Threat Matrix)",
+      desc: "Edge Risk Engine synthesizes compound threat rules (e.g. Survivor + Fire proximity escalates to CRITICAL).",
+      subsystem: "edge_risk_engine_node (Threat Matrix)",
     },
     {
       step: 6,
       title: "ALERT",
-      desc: "Instant tactical beacon, map geocache, and emergency alerts dispatched to field responders on ground dashboard.",
+      desc: "Geotagged alert is added to the command-center incident stream.",
       subsystem: "dashboard_adapter_node (Local Wi-Fi / Radio)",
     },
   ];
@@ -71,7 +71,7 @@ export default function ArchitecturePage() {
             </h1>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Hardware avionics, ROS 2 software stack, and edge multi-modal verification mechanics
+            Hardware avionics, ROS 2 software stack, and edge perception, fusion, and prioritization flow
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ArchitecturePage() {
         </div>
       </div>
 
-      {/* Interactive "How It Works" 6-Step Walkthrough */}
+      {/* Interactive system walkthrough */}
       <div className="bg-[#0b1017] border border-[#1b2738] rounded-lg p-4 shadow-xl space-y-4">
         <div className="border-b border-[#182638] pb-2 flex items-center justify-between">
           <h2 className="text-xs font-bold text-white uppercase tracking-wider">
