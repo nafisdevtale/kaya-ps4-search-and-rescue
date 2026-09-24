@@ -27,7 +27,7 @@ export class FutureLiveMavlinkRos2Provider implements IDataProvider {
 
   public init(): void {
     console.info(
-      "[ANOMALY ARCHITECTURE] FutureLiveMavlinkRos2Provider scaffolded. Physical UAV integration planned for subsequent phase."
+      "[FUTURE LIVE PROVIDER] FutureLiveMavlinkRos2Provider scaffolded. Physical UAV integration planned for subsequent phase."
     );
   }
 
