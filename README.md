@@ -22,14 +22,14 @@ This repository contains the **PS4 Search & Rescue Command Center**, its determi
 
 ## Engineering package
 
-The engineering artifacts are intentionally separated by purpose:
+The engineering artifacts are intentionally separated by purpose. The controlled PDF files used for the KAYA form are the submission attachments; the repository contains GitHub-readable engineering references for the same baseline:
 
 | Artifact | Purpose |
 |---|---|
-| [Final BOM](docs/submission/BOM_Final.pdf) | Procurement baseline, specifications, quantities and cost |
-| [Circuit Schematic](docs/submission/Circuit_Schematic.pdf) | Electrical power, control and data interfaces |
+| [Final BOM reference](docs/submission/BOM_Final.md) | Procurement baseline, specifications, quantities and cost |
+| [Circuit Schematic reference](docs/submission/Circuit_Schematic.md) | Electrical power, control and data interfaces |
 | [System Architecture](docs/submission/System_Architecture.svg) | System-level hardware, data-flow and functional architecture |
-| [System Review](docs/submission/System_Review_Engineering_Document.pdf) | Detailed engineering explanation, interfaces, validation and limitations |
+| [System Review reference](docs/submission/System_Review_Engineering_Document.md) | Detailed engineering explanation, interfaces, validation and limitations |
 | [Engineering Package Guide](docs/ENGINEERING_PACKAGE.md) | Document hierarchy and submission guidance |
 
 The **BOM** is the procurement source of truth, the **circuit schematic** is the electrical-interface source of truth, and the **system architecture** is the system-level functional source of truth. The **System Review** explains how these artifacts fit together.
