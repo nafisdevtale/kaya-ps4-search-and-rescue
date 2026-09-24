@@ -118,7 +118,7 @@ export function IncidentDetailModal() {
                   {selectedIncident.thermalConfirmed ? `${selectedIncident.thermalPeakTemp || 34.8}°C` : "N/A"}
                 </div>
                 <div className="text-[9px] text-emerald-400">
-                  {selectedIncident.thermalConfirmed ? "Confirmed" : "No anomaly"}
+                  {selectedIncident.thermalConfirmed ? "Thermal match" : "No thermal match"}
                 </div>
               </div>
 
