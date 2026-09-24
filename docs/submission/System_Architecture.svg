@@ -72,8 +72,7 @@
   <text x="604" y="253" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Pixhawk 2.4.8</text>
   <text x="604" y="277" text-anchor="middle" font-size="14" font-weight="600" fill="#dbeafe">ArduCopter flight controller</text>
   <text x="604" y="300" text-anchor="middle" font-size="12" fill="#cbd5e1">IMU · barometer · flight state</text>
-  <rect x="472" y="226" width="78" height="18" rx="8" fill="#334155"/>
-  <text x="511" y="239" text-anchor="middle" font-size="9" font-weight="700" fill="#dbeafe">FLIGHT CORE</text>
+  
 
   <rect x="458" y="343" width="136" height="60" rx="11" class="box" stroke="#4b9bdf"/>
   <text x="526" y="366" text-anchor="middle" class="label">GPS + Compass</text>
