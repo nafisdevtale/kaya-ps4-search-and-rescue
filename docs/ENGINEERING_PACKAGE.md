@@ -1,6 +1,6 @@
 # Engineering Package Guide
 
-**KAYA Buildathon 2026 · PS4 Search & Rescue · Team ANOMALY · KT-2047**
+**KAYA Buildathon 2026 · PS4 · MARK I SAR · Team ANOMALY · KT-2047**
 
 ## Document hierarchy
 
@@ -38,8 +38,9 @@ These artifacts are complementary, not duplicate versions of one file.
 
 ## Consistency rules
 
+- Project/system identity is **MARK I SAR**.
 - Team identity is **ANOMALY · KT-2047**.
-- Project/system identity is **PS4 Search & Rescue**. Do not use ANOMALY as the drone/system name.
+- Official problem statement identity remains **PS4 — AI-Powered Autonomous Drone for Search-and-Rescue: Detecting People and Hazards**.
 - Companion computer is **Raspberry Pi 4 Model B, 4 GB**.
 - Flight controller is **Pixhawk 2.4.8**.
 - Physical integration is not claimed as complete.
