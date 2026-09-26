@@ -16,14 +16,14 @@ export interface ProjectBrandConfig {
 }
 
 export const PROJECT_BRAND: ProjectBrandConfig = {
-  projectName: "PS4 Search & Rescue",
-  commandCenterTitle: "PS4 SEARCH & RESCUE COMMAND CENTER",
-  shortName: "PS4 SAR",
+  projectName: "MARK I SAR",
+  commandCenterTitle: "MARK I SAR COMMAND CENTER",
+  shortName: "MARK I SAR",
   teamName: "ANOMALY",
   teamId: "KT-2047",
   competition: "KAYA Buildathon 2026",
   problemStatement: "PS4 — AI-Powered Autonomous Drone for Search-and-Rescue: Detecting People and Hazards",
-  subtitle: "AI-Powered Autonomous Search & Rescue",
+  subtitle: "AI-Powered Multi-Sensor Search & Rescue UAV",
   systemTagline: "Multi-Modal Search, Detection & Triage",
   version: "SIM",
   simulationNotice: "SIMULATION MODE — DEMONSTRATION DATA",
