@@ -2,7 +2,8 @@
 ## AI-Powered Multi-Sensor Search & Rescue UAV
 
 **KAYA Buildathon 2026 · PS4**  
-**Team:** ANOMALY · **Team ID:** KT-2047
+**Team:** ANOMALY · **Team ID:** KT-2047  
+**Live MVP:** https://kaya-ps4-search-and-rescue.vercel.app/
 
 MARK I SAR is a proposed low-cost, AI-powered multi-sensor search-and-rescue UAV designed to detect people and hazards, confirm detections using complementary RGB and thermal sensing, provide spatial context through stereo vision, geo-tag mission events, and prioritize detected risks. The platform combines Pixhawk-based flight control with Raspberry Pi 4B edge computing, local sensor fusion, and 433 MHz telemetry to a ground command center. The current submission demonstrates the system architecture, engineering design, deterministic mission simulation, and deployed command-center MVP, with physical sensor integration, live Pixhawk/MAVLink connectivity, and autonomous flight validation defined as the next engineering milestones.
 
