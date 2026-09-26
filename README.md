@@ -1,11 +1,14 @@
-# PS4 Search & Rescue Command Center
+# MARK I SAR
+## AI-Powered Multi-Sensor Search & Rescue UAV
 
-**KAYA Buildathon 2026 · PS4 — AI-Powered Autonomous Drone for Search-and-Rescue**  
+**KAYA Buildathon 2026 · PS4**  
 **Team:** ANOMALY · **Team ID:** KT-2047
+
+MARK I SAR is a proposed low-cost, AI-powered multi-sensor search-and-rescue UAV designed to detect people and hazards, confirm detections using complementary RGB and thermal sensing, provide spatial context through stereo vision, geo-tag mission events, and prioritize detected risks. The platform combines Pixhawk-based flight control with Raspberry Pi 4B edge computing, local sensor fusion, and 433 MHz telemetry to a ground command center. The current submission demonstrates the system architecture, engineering design, deterministic mission simulation, and deployed command-center MVP, with physical sensor integration, live Pixhawk/MAVLink connectivity, and autonomous flight validation defined as the next engineering milestones.
 
 ## Project status
 
-This repository contains the **PS4 Search & Rescue Command Center**, its deterministic mission simulation, and the engineering documentation for the proposed UAV platform.
+This repository contains the **MARK I SAR Command Center**, its deterministic mission simulation, and the engineering documentation for the proposed UAV platform.
 
 > **Important:** The dashboard is a simulation. The physical UAV, live Pixhawk/MAVLink link, ROS 2 companion pipeline, sensor hardware and autonomous flight have not been integrated or flight-validated in this repository.
 
@@ -36,7 +39,7 @@ The **BOM** is the procurement source of truth, the **circuit schematic** is the
 
 ## System architecture
 
-![PS4 Search & Rescue UAV system architecture](docs/submission/System_Architecture_Clean.svg)
+![MARK I SAR UAV system architecture](docs/submission/System_Architecture_Clean.svg)
 
 ### Physical data path
 
@@ -169,4 +172,4 @@ npm run start
 
 The current simulation build requires no API keys or application-side secrets.
 
-**Team ANOMALY · KT-2047 · KAYA Buildathon 2026**
+**MARK I SAR · Team ANOMALY · KT-2047 · KAYA Buildathon 2026**
