@@ -1,6 +1,6 @@
-# Final Bill of Materials
+# MARK I SAR — Final Bill of Materials
 
-**KAYA Buildathon 2026 · PS4 Search & Rescue**  
+**KAYA Buildathon 2026 · PS4**  
 **Team ANOMALY · KT-2047**  
 **Procurement review: 24 September 2026**
 
