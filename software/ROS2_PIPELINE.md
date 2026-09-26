@@ -1,6 +1,6 @@
-# Software & Integration Architecture
+# MARK I SAR — Software & Integration Architecture
 
-**KAYA Buildathon 2026 · PS4 Search & Rescue**  
+**KAYA Buildathon 2026 · PS4**  
 **Team:** ANOMALY · **KT-2047**
 
 ## Integration boundary
