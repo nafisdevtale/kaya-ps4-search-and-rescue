@@ -1,6 +1,6 @@
-# Hardware Specification
+# MARK I SAR — Hardware Specification
 
-**KAYA Buildathon 2026 · PS4 Search & Rescue**  
+**KAYA Buildathon 2026 · PS4**  
 **Team:** ANOMALY · **KT-2047**
 
 ## Locked prototype baseline
