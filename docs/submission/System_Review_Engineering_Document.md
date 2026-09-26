@@ -1,4 +1,4 @@
-# System Review — Electrical & Data Interface
+# MARK I SAR — System Review: Electrical & Data Interface
 
 ## Purpose
 
@@ -43,7 +43,7 @@ The repository does not claim that physical UAV integration, physical AI inferen
 | 3S LiPo | XT60 / battery bus | Primary energy |
 | Power module | Battery → Pixhawk | FC power + sensing |
 | F450 PDB | Battery → ESCs | Propulsion distribution |
-| Pixhawk | PWM / GPS / UART / MAVLink | Flight control |
+| Pixhawk 2.4.8 | PWM / GPS / UART / MAVLink | Flight control |
 | A2212 + ESC | VBAT + PWM | Propulsion |
 | 5 V buck | VBAT → 5 V | Companion electronics |
 | Camera Module 3 | CSI-2 | RGB |
