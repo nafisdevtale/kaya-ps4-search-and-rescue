@@ -1,4 +1,4 @@
-# Circuit Schematic — Engineering Reference
+# MARK I SAR — Circuit Schematic Engineering Reference
 
 The submitted one-page schematic defines the following electrical and data partition.
 
@@ -49,4 +49,4 @@ The telemetry link carries vehicle and selected mission information. It is not d
 
 ## Engineering boundary
 
-The schematic is an intended prototype interface drawing. 
+The schematic is an intended prototype interface drawing.
